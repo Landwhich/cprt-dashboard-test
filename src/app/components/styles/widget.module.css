@@ -1,7 +1,10 @@
 .shape{
-    height: 40vh;
-    max-width: 25vw;
+    display:grid;
+    height: 35vh;
+    max-width: 30vw;
     align-content: center;
     justify-content: center;
-    color:grey
+    border-radius: 15px;
+    border-width: 5px;
+    border-color: red;
 }

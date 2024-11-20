@@ -1,4 +1,6 @@
-import styles from '../styles/joystick.module.css'
+import styles from '../../styles/joystick.module.css'
+
+//import circle from '../../../../server/joystick/joystick.js'
 
 export default function Joy() {
     return(
