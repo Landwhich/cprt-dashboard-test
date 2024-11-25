@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import widgetStyles from './components/styles/widget.module.css'
+import widgetStyles from '@styles/widget.module.css'
 
 import Joy from './components/topics/joystick/page'
 
@@ -10,7 +10,7 @@ export default function Home() {
           
             <div className={widgetStyles.shape}>
               <Link href="/components/topics/joystick">
-              <Joy></Joy></Link>
+              </Link>
             </div>
 
         </div>
