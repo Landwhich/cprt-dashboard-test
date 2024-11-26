@@ -3,8 +3,8 @@ import React, { useEffect, useRef } from 'react';
 import { Joystick } from '@server/joystick/joystick';
 
 const JoystickCanvas: React.FC = () => {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null); // Reference to the canvas element
-  const joysticksRef = useRef<Joystick[]>([]); // To store joystick instances
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const joysticksRef = useRef<Joystick[]>([]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -13,23 +13,21 @@ const JoystickCanvas: React.FC = () => {
     const context = canvas.getContext('2d');
     if (!context) return;
 
-    // Set canvas size
     const width = (canvas.width = window.innerWidth);
     const height = (canvas.height = window.innerHeight);
 
-    // Create Joystick instances and attach to the canvas
-    const joystick = new Joystick(width / 1.5, height / 2, width / 6, width / 12, context);
+    const joystick = new Joystick(width / 1.5, height / 2, width / 6, width / 12);
     joysticksRef.current.push(joystick);
 
     // Attach event listeners for dragging
-    joystick.attachEventListeners(canvas);
+    joystick.listener();
 
     // Animation loop for rendering
     const fps = 120;
     const interval = setInterval(() => {
       context.clearRect(0, 0, width, height); // Clear the canvas
-      joystick.update(); // Update joystick state
-      joystick.draw(); // Draw joystick
+      joystick.update(context); // Update joystick state
+      joystick.draw(context); // Draw joystick
     }, 1000 / fps);
 
     return () => {

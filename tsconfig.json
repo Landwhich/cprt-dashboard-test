@@ -22,7 +22,7 @@
       "@/*": ["./src/*"],
       "@server/*": ["./src/server/*"],
       "@app/*": ["./src/app/*"],
-      "@styles/*": ["./src/app/components/styles*"]
+      "@styles/*": ["./src/app/components/styles/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/layout/grid-widget.ts"],

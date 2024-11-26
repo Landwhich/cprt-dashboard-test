@@ -1,6 +1,7 @@
 //import { ros } from "@server/ros/ros-handler";
+import {Vector2} from "./vector"
 
-function circle(pos : Vector2, radius : number, color : string) {
+function circle(context : CanvasRenderingContext2D, pos : Vector2, radius : number, color : string) {
     context.beginPath();
     context.fillStyle = color;
     context.arc(pos.x, pos.y, radius, 0, Math.PI * 2);
@@ -31,7 +32,6 @@ class Joystick {
         this.tempY = 10;
     }
     listener() {
-	// Touch Events
         addEventListener('touchstart', e => {
             this.touchPos = new Vector2(e.touches[0].pageX, e.touches[0].pageY);
             if (this.touchPos.sub(this.origin).mag() <= this.radius) this.ondrag = true;
@@ -42,8 +42,8 @@ class Joystick {
         addEventListener('touchmove', e => {
             this.touchPos = new Vector2(e.touches[0].pageX, e.touches[0].pageY);
         });
-	// Mouse Events
-	addEventListener('mousedown', e => {
+	    // Mouse Events
+	    addEventListener('mousedown', e => {
             this.touchPos = new Vector2(e.pageX, e.pageY);
             if (this.touchPos.sub(this.origin).mag() <= this.radius) this.ondrag = true;
         });
@@ -63,16 +63,16 @@ class Joystick {
             this.pos = this.origin.add(diff.normalize().mul(maxDist));
         }
     }
-    draw() {
+    draw(context : CanvasRenderingContext2D) {
         //Joystick
-        circle(this.origin, this.radius, '#e57ceb');
+        circle(context, this.origin, this.radius, '#e57ceb');
         //Handle
-        circle(this.pos, this.handleRadius, '#3d3d3d');
+        circle(context, this.pos, this.handleRadius, '#3d3d3d');
         
     }
-    update() {
+    update(context : CanvasRenderingContext2D) {
         this.reposition();
-        this.draw();  
+        this.draw(context);  
         let xVel = 0;
         let yVel = 0;
         
@@ -92,7 +92,6 @@ class Joystick {
         // });
 
         // cmdVel.publish(twist);
-
     }
 }
 

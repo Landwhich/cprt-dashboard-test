@@ -6,15 +6,12 @@ import Joy from './components/topics/joystick/page'
 
 export default function Home() {
   return (
-        <div>
-          
-            <div className={widgetStyles.shape}>
-              <Link href="/components/topics/joystick">
-              </Link>
-            </div>
-
-        </div>
+    <div>
+      <div className={widgetStyles.shape}>
+        <Link href="/components/topics/joystick">
+        <Joy></Joy>
+        </Link>
+      </div>
+    </div>
   );
 }
-
-//git being weird
