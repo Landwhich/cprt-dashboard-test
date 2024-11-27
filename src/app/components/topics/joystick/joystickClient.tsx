@@ -15,7 +15,7 @@ const JoystickCanvas: React.FC = () => {
     const width = (canvas.width = window.innerWidth);
     const height = (canvas.height = window.innerHeight);
 
-    const joystick = new Joystick(window.innerWidth/2, window.innerHeight / 2, window.innerWidth / 10, window.innerHeight / 12);
+    const joystick = new Joystick(window.innerWidth/2, window.innerHeight / 2, window.innerWidth / 8, window.innerWidth / 12);
     joysticksRef.current.push(joystick);
 
     joystick.listener();

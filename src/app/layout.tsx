@@ -13,7 +13,7 @@ const geistMono = ({
 });
 
 export const metadata: Metadata = {
-  title: "Create Next App",
+  title: "Rover Dashboard",
 };
 
 export default function RootLayout({

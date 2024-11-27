@@ -80,7 +80,7 @@ class Joystick {
             xVel = 2 * (this.pos.x - this.origin.x) / this.radius;
             yVel = -2 * (this.pos.y - this.origin.y) / this.radius;
         }
-        //console.log("Joystick Velocities:", xVel, yVel);
+        console.log("Joystick Velocities:", xVel, yVel);
         
         // let twist = new ROSLIB.Message({
         //     linear : {
