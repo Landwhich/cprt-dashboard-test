@@ -8,32 +8,29 @@ const JoystickCanvas: React.FC = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
-
+    if (!canvas) return console.log("joystick canvas error");
     const context = canvas.getContext('2d');
-    if (!context) return;
+    if (!context) return console.error("joystick context error");
 
     const width = (canvas.width = window.innerWidth);
     const height = (canvas.height = window.innerHeight);
 
-    const joystick = new Joystick(width / 1.5, height / 2, width / 6, width / 12);
+    const joystick = new Joystick(window.innerWidth/2, window.innerHeight / 2, window.innerWidth / 10, window.innerHeight / 12);
     joysticksRef.current.push(joystick);
 
-    // Attach event listeners for dragging
     joystick.listener();
 
-    // Animation loop for rendering
     const fps = 120;
     const interval = setInterval(() => {
-      context.clearRect(0, 0, width, height); // Clear the canvas
-      joystick.update(context); // Update joystick state
-      joystick.draw(context); // Draw joystick
+      context.clearRect(0, 0, width, height);
+      joystick.update(context);
+      joystick.draw(context);
     }, 1000 / fps);
 
     return () => {
-      clearInterval(interval); // Clean up the interval on component unmount
+      clearInterval(interval);
     };
-  }, []); // Only run on mount
+  }, []);
 
   return <canvas ref={canvasRef} />;
 };
