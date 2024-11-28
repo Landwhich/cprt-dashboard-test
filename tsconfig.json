@@ -19,13 +19,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
-      "@server/*": ["./src/server/*"],
-      "@app/*": ["./src/app/*"],
-      "@lib/*": ["./src/lib/*"],
-      "@styles/*": ["./src/app/components/styles/*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/layout/grid-widget.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/layout/grid-widget.ts"],
   "exclude": ["node_modules"]
 }

@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useRef } from 'react';
-import { Joystick } from '@server/joystick/joystick';
+import { Joystick } from '@/components/joystick/joystick';
 
 const JoystickCanvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);

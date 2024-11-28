@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import { ConnectionManager } from '@lib/managers/ConnectionManager';
-import { ConnectionEvents } from '@lib/events/ConnectionEvents';
+import { ConnectionManager } from '@/lib/managers/ConnectionManager';
+import { ConnectionEvents } from '@/lib/events/ConnectionEvents';
 
 const RosConnectionManagerTest = () => {
     const [urls, setUrls] = useState('ws://localhost:9090');

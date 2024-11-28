@@ -1,5 +1,5 @@
-import Joy from '@/app/components/topics/joystick/page'
-import Map from '@/app/components/topics/map/page'
+import Joy from '@/app/topics/joystick/page'
+import Map from '@/app/topics/map/page'
 
 const topicList = [
     {component : Joy, path : "joystick"},
